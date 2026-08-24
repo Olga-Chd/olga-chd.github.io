@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Продуктовый Маркетолог</title>
+    
+    <!-- Подключение шрифта Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Настройка Tailwind для сине-мятной темы -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        },
+                        mint: {
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Базовые стили для плавной анимации при скролле */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Стили для градиентного текста (Синий -> Мятный) */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #2563eb, #14b8a6);
+        }
+        
+        .dark .text-gradient {
+            background-image: linear-gradient(to right, #60a5fa, #2dd4bf);
+        }
+    </style>
+</head>
+<!-- Добавлен bg-fixed и градиенты для светлой и темной тем -->
+<body class="bg-gradient-to-br from-brand-50 via-slate-50 to-mint-100 dark:from-slate-900 dark:via-slate-800 dark:to-brand-900/30 bg-fixed text-slate-900 dark:text-slate-50 transition-colors duration-300 font-sans min-h-screen">
+
+    <!-- Навигация -->
+    <nav class="fixed w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-white/50 dark:border-slate-700/50 transition-colors duration-300 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tight">
+                    <a href="#home">Marketer<span class="text-brand-500">.Pro</span></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Обо мне</a>
+                        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Кейсы</a>
+                        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Навыки</a>
+                        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Контакты</a>
+                    </div>
+                </div>
+                <div>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 shadow-sm border border-slate-200/50 dark:border-slate-700/50 transition-all">
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                        <i class="fas fa-moon block dark:hidden text-slate-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран (Hero) -->
+    <header id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 flex items-center min-h-screen">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <p class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase mb-3 text-sm md:text-base">Продуктовый маркетолог</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Вывожу продукты на рынок <br class="hidden md:block">
+                <span class="text-gradient">более 2 лет</span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-300 mx-auto mb-10">
+                Я исследую аудиторию, формулирую позиционирование и упаковываю решения.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#projects" class="px-8 py-4 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-all shadow-lg hover:shadow-brand-500/40 transform hover:-translate-y-1">Смотреть кейсы</a>
+                <a href="#contact" class="px-8 py-4 rounded-full border-2 border-brand-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm hover:border-brand-500 dark:hover:border-brand-400 hover:text-brand-600 dark:hover:text-brand-400 font-semibold transition-all transform hover:-translate-y-1">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Обо мне (Без фото, по центру) -->
+    <section id="about" class="py-24 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border-y border-white/60 dark:border-slate-700/30 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">Кто я и чем могу помочь?</h2>
+            
+            <p class="text-slate-700 dark:text-slate-300 mb-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+                Привет! Меня зовут Оля. Я работаю на стыке продукта, маркетинга и аналитики. Моя главная цель — сделать так, чтобы ценность продукта была очевидна для целевой аудитории.
+            </p>
+            <p class="text-slate-700 dark:text-slate-300 mb-12 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+                Имею практический опыт с продуктами: от анализа ниши и гипотез до формирования контента и синхронизации с командами.
+            </p>
+            
+            <!-- Стеклянная карточка с навыками и опытом -->
+            <div class="bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg rounded-3xl p-8 md:p-10 shadow-xl border border-white/50 dark:border-slate-600/30 inline-block text-left w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-300">
+                <ul class="space-y-6">
+                    <li class="flex items-center text-slate-800 dark:text-slate-200 text-lg font-medium">
+                        <div class="bg-brand-100 dark:bg-brand-900/50 w-12 h-12 flex items-center justify-center rounded-xl mr-5 text-brand-600 dark:text-brand-400 shadow-sm shrink-0">
+                            <i class="fas fa-bullseye text-xl"></i>
+                        </div>
+                        Разработка GTM-стратегий
+                    </li>
+                    <li class="flex items-center text-slate-800 dark:text-slate-200 text-lg font-medium">
+                        <div class="bg-brand-100 dark:bg-brand-900/50 w-12 h-12 flex items-center justify-center rounded-xl mr-5 text-brand-600 dark:text-brand-400 shadow-sm shrink-0">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        Проведение CustDev и опросов
+                    </li>
+                    <li class="flex items-center text-slate-800 dark:text-slate-200 text-lg font-medium">
+                        <div class="bg-brand-100 dark:bg-brand-900/50 w-12 h-12 flex items-center justify-center rounded-xl mr-5 text-brand-600 dark:text-brand-400 shadow-sm shrink-0">
+                            <i class="fas fa-box-open text-xl"></i>
+                        </div>
+                        Упаковка продуктов и решений
+                    </li>
+                </ul>
+                
+                <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 text-center">
+                    <p class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-mint-500 dark:from-brand-400 dark:to-mint-400 mb-2">4+</p>
+                    <p class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">лет в B2B / B2G маркетинге</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мои проекты (Сетка) -->
+    <section id="projects" class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Реализованные проекты</h2>
+                <p class="text-slate-700 dark:text-slate-300 max-w-2xl mx-auto text-lg">Кейсы, которыми я горжусь. Глубокое погружение в B2B и государственные контракты.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Проект 1 -->
+                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/50 dark:border-slate-700/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 reveal">
+                    <div class="h-56 bg-slate-200 dark:bg-slate-700 relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="SWOT-анализ" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-slate-900 dark:text-white shadow-sm">B2B / B2G</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">SWOT-анализ</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-6 line-clamp-4 text-base">
+                            Провела исследование рынка и конкурентов. Выявила ключевые сильные и слабые стороны продукта.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">Market Research</span>
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">Strategy</span>
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">SWOT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/50 dark:border-slate-700/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 reveal delay-100">
+                    <div class="h-56 bg-slate-200 dark:bg-slate-700 relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="Позиционирование IT-продукта" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-slate-900 dark:text-white shadow-sm">B2B / B2G</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">Позиционирование и упаковка IT-продукта</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-6 line-clamp-4 text-base">
+                            С нуля создала контент для страницы сложного IT-продукта и Go-To-Market стратегию.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">Positioning</span>
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">Packaging</span>
+                            <span class="text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-md">CVP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills" class="py-24 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border-y border-white/60 dark:border-slate-700/30 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-10">Мои навыки</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-white/50 dark:border-slate-600/50 hover:border-brand-400 dark:hover:border-brand-500 cursor-default">Go-to-Market Strategy</div>
+                <div class="px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-white/50 dark:border-slate-600/50 hover:border-brand-400 dark:hover:border-brand-500 cursor-default">SWOT & PEST-анализ</div>
+                <div class="px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-white/50 dark:border-slate-600/50 hover:border-brand-400 dark:hover:border-brand-500 cursor-default">Позиционирование</div>
+                <div class="px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-white/50 dark:border-slate-600/50 hover:border-brand-400 dark:hover:border-brand-500 cursor-default">Упаковка продуктов</div>
+                <div class="px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold shadow-sm hover:shadow-md transition-all border border-white/50 dark:border-slate-600/50 hover:border-brand-400 dark:hover:border-brand-500 cursor-default">Конкурентный анализ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Готова обсудить сотрудничество</h2>
+                <p class="text-slate-700 dark:text-slate-300 text-lg">Оставьте заявку и я свяжусь с вами.</p>
+            </div>
+            
+            <form id="contact-form" class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/60 dark:border-slate-700/50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Имя</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white" placeholder="Иван Иванов">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white" placeholder="hello@company.com">
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Сообщение</label>
+                    <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white resize-none" placeholder="Расскажите вкратце о вашем продукте и задаче..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/40 transform hover:-translate-y-1">
+                    Отправить сообщение
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md py-8 border-t border-white/50 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">© 2026 Все права защищены.</p>
+            <div class="flex space-x-6">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script>
+        // 1. Логика переключения Темной / Светлой темы
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // 2. Плавная анимация появления элементов при скролле
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 3. Обработка формы
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Отправка...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed', 'transform-none');
+
+            setTimeout(() => {
+                btn.innerText = 'Сообщение успешно отправлено!';
+                btn.classList.remove('bg-brand-600', 'hover:bg-brand-500');
+                btn.classList.add('bg-mint-500', 'hover:bg-mint-400');
+                
+                contactForm.reset();
+
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-75', 'cursor-not-allowed', 'transform-none', 'bg-mint-500', 'hover:bg-mint-400');
+                    btn.classList.add('bg-brand-600', 'hover:bg-brand-500');
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
